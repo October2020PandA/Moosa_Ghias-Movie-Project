@@ -1,0 +1,14 @@
+The Movie Picker Webapp
+
+Premised: This webapp will allow to help users decide on 
+what movie they want to watch.
+
+Features:
+-The users that are part of party of a set number will each
+get movie recommendations that they will swipe left or right from.
+-Once they are done swiping, the system will see what movies
+they all liked in common.
+-Then from there they will rank the movies 1-10. 1 being the
+most favorite and 10 being the least favorite.
+-The movie with the highest rank will be the movie of choice to watch
+
