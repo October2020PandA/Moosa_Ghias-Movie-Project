@@ -4,11 +4,13 @@ Premised: This webapp will allow to help users decide on
 what movie they want to watch.
 
 Features:
--The users that are part of party of a set number will each
-get movie recommendations that they will swipe left or right from.
--Once they are done swiping, the system will see what movies
-they all liked in common.
--Then from there they will rank the movies 1-10. 1 being the
-most favorite and 10 being the least favorite.
--The movie with the highest rank will be the movie of choice to watch
+p0
+-The user can create an account 
+-They will be logged in on session
+-They can chose what movie they want by swiping
+p1
+-The app will have a sort of room feature where multiple users can be in the same room
+-The movies will be hardcoded into the database
+p2
+-The app will scrape movies from movie listing website(s)
 
