@@ -6,6 +6,11 @@ urlpatterns = [
     path('login', views.login),
     path('register', views.register),
     path('enter', views.enter),
-    path('logout', views.logout)
+    path('logout', views.logout),
+    # path('choices', views.choices),
+    path('search', views.search),
+    path('details/<int:movie_id>', views.details)
+    # path('details', views.movie_details)
+
 
 ]

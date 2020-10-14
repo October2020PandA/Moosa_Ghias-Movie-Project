@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="row m-2">
+        
+        {% for movie in results.results %}
+        <a href="/details/{{movie.id}}">  
+            <div class="col img-body">  
+                <div class="card" style="width: 18rem;">
+                    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">{{movie.title}}</h5>
+                    <p class="card-overview">{{movie.overview}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+</div>
+</body>
+</html>
