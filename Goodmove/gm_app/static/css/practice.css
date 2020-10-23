@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Nunito', sans-serif;
+}
+
+body{
+  background: #dfdfdf;
+}
+
+.wrapper{
+  display: flex;
+  max-width: 560px;
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+#img{
+  margin-top: 60px;
+}
+.wrapper .left,
+.wrapper .right{
+  width: 50%;
+  height: 130%;
+  padding: 30px;
+}
+
+.wrapper .left{
+  background: #a28d4f;
+}
+
+.wrapper .left h3{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.wrapper .left img{
+  display: block;
+  width: 220px;
+  margin: 25px auto 0;
+}
+
+.wrapper .right{
+  background: #fff;
+}
+
+.wrapper .right .tabs ul{
+  text-align: center;
+}
+
+.wrapper .right .tabs ul li{
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #494f57;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.wrapper .right .tabs ul li.active{
+  border-bottom: 2px solid #a28d4f;
+}
+
+.wrapper .right .register,
+.wrapper .right .login{
+  margin-top: 20px;
+}
+
+.wrapper .right .input_field{
+  margin-bottom: 15px;
+}
+
+
+.wrapper .right .btn{
+  margin-top: 20px;
+  background: #a28d4f;
+  padding: 10px 60px 10px 60px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color:white;
+}
+
+.wrapper .right .btn a{
+  color: #fff;
+  display: block;
+  font-size: 14px;
+}
+
+#login_button{
+    padding: 10px 78px 10px 78px;
+}

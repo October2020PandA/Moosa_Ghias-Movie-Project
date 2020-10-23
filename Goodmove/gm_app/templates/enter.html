@@ -9,32 +9,43 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <a href="/logout">Log Out</a>
-    <h1> Hello {{user.first_name}} You Made it!!</h1>
-    <div class="row m-2">
+    
+    <div id="container">
 
-        <form action="/search" method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="search">Search</label>
-                <input type="text" name="search" id="search" class="form-control">
+        <div id="top" class="jumbotron text-center">
+            <div id="top1">
+                <h1> Good Move {{user.first_name}} </h1>
+
             </div>
-        </form>
-        {% for movie in popular.results %}
-        <!-- <form action="/details/{{movie.id}}>" method="POST">  -->
-        <a href="/details/{{movie.id}}"> 
-            <div class="col img-body">  
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">{{movie.title}}</h5>
+            <div id="top2">
+                <a href="/logout">Log Out</a>
+                <form id="search" action="/search" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="search"></label>
+                        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+        </div>    
+        <br>
+
+
+        <div class="middle">
+            {% for movie in popular.results %}
+            <a href="/details/{{movie.id}}"> 
+                <div class="img-body">  
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">{{movie.title}}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
-        <!-- </form> -->
-        {% endfor %}
-</div>
+            </a>
+            {% endfor %}
+        </div>  
+    </div>
 
 </body>
 </html>

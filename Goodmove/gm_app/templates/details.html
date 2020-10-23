@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Movie Details</h1>
+    <div class="header">
+        <h1>Movie Details</h1>
+        <a href="/enter">Go Back</a>
+    </div>
+    
     <div class="col img-body">  
         <div class="card" style="width: 18rem;">
                 <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{details.poster_path}}" class="card-img-top" alt="...">
@@ -17,6 +21,7 @@
                 <h5 class="card-title">{{details.title}}</h5>
                 <p class="card-overview">{{details.overview}}</p>
                 </div>
+                <a href="/add/{{details.id}}">Add to watchlist</a>
         </div>
     </div>
     

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <h1>Searches</h1>
+    <a href="/enter">Go Back</a>
     <div class="row m-2">
         
         {% for movie in results.results %}
@@ -18,12 +20,11 @@
                     <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">{{movie.title}}</h5>
-                    <p class="card-overview">{{movie.overview}}</p>
                     </div>
                 </div>
             </div>
         </a>
         {% endfor %}
-</div>
+    </div>
 </body>
 </html>

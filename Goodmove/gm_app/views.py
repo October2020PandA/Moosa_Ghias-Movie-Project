@@ -52,10 +52,13 @@ def enter(request):
     return render(request, 'enter.html', movies)
 
 def search(request):
+    if 'user_id' not in request.session:
+        return redirect('/')
     query = request.POST['search']
     url = f'{base_url}search/movie?api_key={api_key}&query={query}&page=1&include_adult=True'
     the_search = requests.get(url)
     result = the_search.json()
+    print(result) 
     movies = {'results': result}
     return render(request, 'search.html', movies)
 
@@ -65,17 +68,32 @@ def details(request,movie_id):
     # response = requests.get(url)
     # movies = {'moviedetail':response.json()}
     # return render(request, 'movie_details.html', context=movies)
+    if 'user_id' not in request.session:
+        return redirect('/')
     url = f'{base_url}movie/{movie_id}?api_key={api_key}&language=en-US'
     the_movie = requests.get(url)
     detail = the_movie.json()
-    print(url)
     context = {'details':detail}
     return render(request,'details.html',context)
 
-# def choices(request):
-#     if 'user_id' not in request.session:
-#         return redirect('/')
-#     return render(request, 'choices.html')
+def add(request,movie_id):
+    if 'user_id' not in request.session:
+        return redirect('/')
+    url = f'{base_url}movie/{movie_id}?api_key={api_key}&language=en-US'
+    the_movie = requests.get(url)
+    detail = the_movie.json()
+    context = {'details':detail}
+    Movie.objects.create(name=detail.get("original_title"),length= detail.get("runtime"))
+    return redirect('/choices')
+    
+
+def choices(request):
+    if 'user_id' not in request.session:
+        return redirect('/')
+    context = {
+        'movies':Movie.objects.all()
+    }
+    return render(request, 'choices.html', context)
 
 # https://api.themoviedb.org/3/movie/299536/?api_key=f1674b5242caff66ee3c4bfcbe5726cc&language=en-US
 # https://api.themoviedb.org/3/movie/299536?api_key=f1674b5242caff66ee3c4bfcbe5726cc&language=en-US

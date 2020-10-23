@@ -1,7 +1,47 @@
+/* *{
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     background-color:cornsilk;
     margin: 40px;
-}
+} */
 .img-body{
-    margin: 10px;
+    margin: 23px;
+    display: inline-block;
+    /* border: black 1px solid; */
 }
+#top{
+    background-color: #a28d4f;
+    height: 88px;
+    
+}
+.jumbotron {
+    padding: 0rem 2rem;
+}
+.middle{
+    margin: 10px 20px 0px 20px;
+}
+/* #top-bar{
+    width: 100%;
+    height: 500px;
+
+}
+*/
+#top1{
+    /* width: 49%; */
+    display: inline-block;
+    outline: 1px red dashed;
+}
+/* 
+#top2{
+    width: 49%;
+    display: inline-block;
+} */
+
+#search{
+    width:300px;
+    display: inline-block;
+    margin-left: 10px;
+} 

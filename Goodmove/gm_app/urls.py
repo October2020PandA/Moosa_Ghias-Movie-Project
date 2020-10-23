@@ -7,9 +7,10 @@ urlpatterns = [
     path('register', views.register),
     path('enter', views.enter),
     path('logout', views.logout),
-    # path('choices', views.choices),
+    path('choices', views.choices),
     path('search', views.search),
-    path('details/<int:movie_id>', views.details)
+    path('details/<int:movie_id>', views.details),
+    path('add/<int:movie_id>', views.add)
     # path('details', views.movie_details)
 
 

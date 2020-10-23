@@ -55,14 +55,14 @@ class UserManager(models.Manager):
         
         return errors
 
-
-class Room(models.Model):
-    name = models.TextField()
-    label = models.SlugField(unique=True)
+class MovieManager(models.Manager):
+    pass
+# class Room(models.Model):
+#     name = models.TextField()
+#     label = models.SlugField(unique=True)
 
 class Movie(models.Model):
     name = models.CharField(max_length = 255)
-    genre = models.CharField(max_length = 255)
     length = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now=True)

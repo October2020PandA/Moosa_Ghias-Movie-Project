@@ -6,8 +6,28 @@
     <title>Login Registration</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/practice.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+		$(document).ready(function(){
+			$(".login").hide();
+			$(".register_li").addClass("active");
+
+			$(".login_li").click(function(){
+			  $(this).addClass("active");
+			  $(".register_li").removeClass("active");
+			  $(".login").show();
+			   $(".register").hide();
+			})
+
+			$(".register_li").click(function(){
+			  $(this).addClass("active");
+			  $(".login_li").removeClass("active");
+			  $(".register").show();
+			   $(".login").hide();
+			})
+		});
+	</script>
 </head>
 <body>
 
@@ -18,30 +38,94 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <div id="log-reg">
+    <div class="wrapper">
+        <div class="left">
+            <h3>GoodMove</h3>   
+          <img id="img" src="{% static 'pictures/popcorn.png' %}" alt="popcorn">
+        </div>
+        <div class="right">
+          <div class="tabs">
+            <ul>
+              <li class="register_li">Register</li>
+              <li class="login_li">login</li>
+            </ul>
+        </div>
+        
+        <div class="register">
+            <form class="newuser" action="/register" method="POST">
+                {% csrf_token %}
+                <div class="input_field">
+                    <input for="first_name" type="text" placeholder="First Name" name="first_name" id="first_name" class="form-control">
+                </div>
+                <div class="input_field">
+                    <input for="last_name" placeholder="Last Name" type="text" name="last_name" id="last_name" class="form-control">
+                </div>
+                <div class="input_field">
+                    <input for="email" placeholder="Email" type="email" name="email" id="email" class="form-control">
+                </div>
+                <div class="input_field">
+                    <input for="password" placeholder="Password" type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="input_field">
+                    <input for="confirm" placeholder="Confirm Pass" type="password" name="confirm_pw" id="confirm_pw" class="form-control">
+                </div>
+                <button class="btn">Register</button>
+            </form> 
+        </div>
+        
+          
+        <div class="login">
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <div class="input_field">
+                <input for="email" name ="email" type="email" placeholder="Email" id="email" class="form-control">
+                </div>
+                <div class="input_field">
+                <input type="password" name="password" for="password" id="password" placeholder="Password" class="form-control">
+                </div>
+                <button id="login_button" class="btn">Login</button>
+            </form>
+            
+          
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div id="log-reg">
         <section>
             <h1>GoodMove</h1>
             <h2>Register Acnt</h2> 
-            <!-- This is a comment that is cool -->
             <form class="newuser" action="/register" method="POST">
                 {% csrf_token %}
-                <div class="form-group">
+                <div class="input_field">
                     <label for="first_name">First Name</label>
                     <input type="text" name="first_name" id="first_name" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="input_field">
                     <label for="last_name">Last Name</label>
                     <input type="text" name="last_name" id="last_name" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="input_field">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="input_field">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="input_field">
                     <label for="confirm">Confirm Password</label>
                     <input type="password" name="confirm_pw" id="confirm_pw" class="form-control">
                 </div>
@@ -52,18 +136,24 @@
             <h2>Login</h2>
             <form action="/login" method="post">
                 {% csrf_token %}
-                <div class="form-group">
+                <div class="input_field">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="input_field">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
                 
-                <button class="btn btn-primary">Register</button>
+                <button class="btn btn-primary">Login</button>
             </form>
-        </section>
+        </section> -->
+
+
+
+
+
+        
         <!-- <script>
             $('form.newuser').submit(function(e){
                 e.preventDefault()

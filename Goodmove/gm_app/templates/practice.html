@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/practice.css' %}">
+	<script>
+		$(document).ready(function(){
+			$(".login").hide();
+			$(".register_li").addClass("active");
+
+			$(".login_li").click(function(){
+			  $(this).addClass("active");
+			  $(".register_li").removeClass("active");
+			  $(".login").show();
+			   $(".register").hide();
+			})
+
+			$(".register_li").click(function(){
+			  $(this).addClass("active");
+			  $(".login_li").removeClass("active");
+			  $(".register").show();
+			   $(".login").hide();
+			})
+		});
+	</script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left">
+            <h3>Goodmove</h3>   
+          <img src="pictures/popcorn.png" alt="popcorn">
+        </div>
+        <div class="right">
+          <div class="tabs">
+            <ul>
+              <li class="register_li">Register</li>
+              <li class="login_li">login</li>
+            </ul>
+        </div>
+        
+        <div class="register">
+            <form class="newuser" action="/register" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input for="first_name" type="text" placeholder="First Name" name="first_name" id="first_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input for="last_name" placeholder="Last Name" type="text" name="last_name" id="last_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input for="email" placeholder="Email" type="email" name="email" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input for="password" placeholder="Password" type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input for="confirm" placeholder="Confirm Pass" type="password" name="confirm_pw" id="confirm_pw" class="form-control">
+                </div>
+                <button class="btn">Register</button>
+            </form> 
+        </div>
+        
+          
+        <div class="login">
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <div class="input_field">
+                <input for="email" type="email" placeholder="email" id="email" class="input">
+                </div>
+                <div class="input_field">
+                <input type="password" name="password" for="password" id="password" placeholder="Password" class="input">
+                </div>
+                <button class="btn">Login</button>
+            </form>
+            
+          
+        </div>
+    </div>
+</body>
+</html>
