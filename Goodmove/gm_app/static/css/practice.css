@@ -35,7 +35,7 @@ body{
 }
 
 .wrapper .left{
-  background: #a28d4f;
+  background: rgb(10, 105, 105);;
 }
 
 .wrapper .left h3{
@@ -72,7 +72,7 @@ body{
 }
 
 .wrapper .right .tabs ul li.active{
-  border-bottom: 2px solid #a28d4f;
+  border-bottom: 2px solid rgb(10, 105, 105);;
 }
 
 .wrapper .right .register,
@@ -87,7 +87,7 @@ body{
 
 .wrapper .right .btn{
   margin-top: 20px;
-  background: #a28d4f;
+  background: rgb(10, 105, 105);;
   padding: 10px 60px 10px 60px;
   text-align: center;
   text-transform: uppercase;

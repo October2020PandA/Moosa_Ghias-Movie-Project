@@ -9,21 +9,43 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="header">
-        <h1>Movie Details</h1>
-        <a href="/enter">Go Back</a>
-    </div>
-    
-    <div class="col img-body">  
-        <div class="card" style="width: 18rem;">
-                <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{details.poster_path}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">{{details.title}}</h5>
-                <p class="card-overview">{{details.overview}}</p>
-                </div>
-                <a href="/add/{{details.id}}">Add to watchlist</a>
+    <div id="container">
+        <div class="top">
+            <div class="top1">
+                <h1> Good Move</h1>
+
+            </div>
+            <div class="top2">
+                <a href="/enter">
+                    <img id="home_img" src="{% static 'pictures/home.png' %}" alt="home">
+                </a>
+                <a id="logout" href="/logout">Log Out</a>
+                <form id="search" action="/search" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="search"></label>
+                        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+        </div>    
+        <br>
+        <div class="movie_details">
+            <h1>Movie Details</h1>
+        </div>
+        
+        <div class="middle_movie">  
+            <div class="card" style="width: 20rem;">
+                    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{details.poster_path}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">{{details.title}}</h5>
+                    <p class="card-overview">{{details.overview}}</p>
+                    </div>
+                    <a id="add_to_watchlist" href="/add/{{details.id}}">Add to watchlist</a>
+            </div>
         </div>
     </div>
+    
     
 </body>
 </html>
