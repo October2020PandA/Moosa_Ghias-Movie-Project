@@ -83,17 +83,27 @@ def add(request,movie_id):
     the_movie = requests.get(url)
     detail = the_movie.json()
     context = {'details':detail}
-    Movie.objects.create(name=detail.get("original_title"),length= detail.get("runtime"))
+    Film.objects.create(name=detail.get("original_title"),length= detail.get("runtime"), user = User.objects.get(id= request.session['user_id']))
     return redirect('/choices')
     
 
 def choices(request):
     if 'user_id' not in request.session:
         return redirect('/')
+    user = User.objects.get(id = request.session['user_id'])
     context = {
-        'movies':Movie.objects.all()
+        'films':Film.objects.all(),
+        'user':user
+
     }
     return render(request, 'choices.html', context)
+
+def delete(request, movie_id):
+    if 'user_id' not in request.session:
+        return redirect('/')
+    to_delete = Film.objects.get(id = movie_id)
+    to_delete.delete()
+    return redirect('/choices')
 
 # https://api.themoviedb.org/3/movie/299536/?api_key=f1674b5242caff66ee3c4bfcbe5726cc&language=en-US
 # https://api.themoviedb.org/3/movie/299536?api_key=f1674b5242caff66ee3c4bfcbe5726cc&language=en-US

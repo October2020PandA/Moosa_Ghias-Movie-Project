@@ -55,18 +55,18 @@ class UserManager(models.Manager):
         
         return errors
 
-class MovieManager(models.Manager):
-    pass
+# class MovieManager(models.Manager):
+#     pass
 # class Room(models.Model):
 #     name = models.TextField()
 #     label = models.SlugField(unique=True)
 
-class Movie(models.Model):
-    name = models.CharField(max_length = 255)
-    length = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now=True)
-
+# class Movie(models.Model):
+#     name = models.CharField(max_length = 255)
+#     length = models.IntegerField()
+#     created_at = models.DateTimeField(auto_now_add = True)
+#     updated_at = models.DateTimeField(auto_now=True)
+#     user = models.ForeignKey(User, related_name="movies", on_delete = models.CASCADE)
 
 
 class User(models.Model):
@@ -74,8 +74,13 @@ class User(models.Model):
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
-    movies = models.ManyToManyField(Movie, related_name = "users")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
 
+class Film(models.Model):
+    name= models.CharField(max_length = 255)
+    length = models.IntegerField()
+    user = models.ForeignKey(User, related_name="films", on_delete = models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)

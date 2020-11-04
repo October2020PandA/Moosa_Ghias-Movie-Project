@@ -10,8 +10,8 @@ urlpatterns = [
     path('choices', views.choices),
     path('search', views.search),
     path('details/<int:movie_id>', views.details),
-    path('add/<int:movie_id>', views.add)
-    # path('details', views.movie_details)
+    path('add/<int:movie_id>', views.add),
+    path('delete/<int:movie_id>', views.delete)
 
 
 ]

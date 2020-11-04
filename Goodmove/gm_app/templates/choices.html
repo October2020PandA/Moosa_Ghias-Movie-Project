@@ -9,26 +9,53 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Your Movie List {{user.first_name}}</h1>
-    <table class="table table-dark table-hover">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Runtime</th>
-                <th>Date Added</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for movie in movies %}
-            <tr>
-                <td>{{ movie.name }}</td>
-                <td>{{ movie.length }} mins</td>
-                <td>{{ movie.created_at|date:"SHORT_DATE_FORMAT" }}</td>
-                <td><a href="/shows/{{ show.id }}">Show</a> | <a href="/shows/{{ show.id }}/edit">Edit</a> | <a href="/shows/{{ show.id }}/delete">Delete</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-        <a href="/enter">Add a Movie!</a>
-    </table>
+    <div id="container">
+        <div class="top">
+            <div class="top1">
+                <h1> Good Move</h1>
+
+            </div>
+            <div class="top2">
+                <a href="/enter">
+                    <img id="home_img" src="{% static 'pictures/home.png' %}" alt="home">
+                </a>
+                <a id="logout" href="/logout">Log Out</a>
+                <form id="search" action="/search" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="search"></label>
+                        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+        </div>        
+        <br>
+        <h1>Your Movie List {{user.first_name}}</h1>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Runtime</th>
+                    <th>Date Added</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for movie in films %}
+                    {% if movie.user == user %}
+                        <tr>
+                            <td>{{ movie.name }}</td>
+                            <td>{{ movie.length }} mins</td>
+                            <td>{{ movie.created_at|date:"SHORT_DATE_FORMAT" }}</td>
+                            <td><a href="/delete/{{movie.id}}">Delete</a></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            
+            </tbody>
+            <a href="/enter">Add a Movie!</a>
+        </table>
+    </div>
+    
 </body>
 </html>
