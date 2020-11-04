@@ -3,7 +3,8 @@ from django.contrib import messages
 from .models import *
 import tmdbsimple as tmdb
 import requests
-api_key = 'f1674b5242caff66ee3c4bfcbe5726cc'
+from decouple import config
+api_key = config('api_key')
 base_url = 'https://api.themoviedb.org/3/'
 
 # Create your views here.
