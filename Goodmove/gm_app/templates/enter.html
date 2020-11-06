@@ -22,6 +22,7 @@
                     <img id="home_img" src="{% static 'pictures/home.png' %}" alt="home">
                 </a>
                 <a id="logout" href="/logout">Log Out</a>
+                <a id="list" href="/choices">Choices</a>
                 <form id="search" action="/search" method="POST">
                     {% csrf_token %}
                     <div class="form-group">

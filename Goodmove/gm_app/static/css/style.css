@@ -19,6 +19,10 @@ h1{
     color: black;
     margin-top: 10px;
 }
+#list{
+    color:black;
+    margin-left: 10px;
+}
 .movie_details{
     text-align: center;
 }

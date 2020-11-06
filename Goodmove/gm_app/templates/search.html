@@ -9,22 +9,45 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Searches</h1>
-    <a href="/enter">Go Back</a>
-    <div class="row m-2">
-        
-        {% for movie in results.results %}
-        <a href="/details/{{movie.id}}">  
-            <div class="col img-body">  
-                <div class="card" style="width: 18rem;">
-                    <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">{{movie.title}}</h5>
+    <div id="container">
+        <div class="top">
+            <div class="top1">
+                <h1> Good Move</h1>
+
+            </div>
+            <div class="top2">
+                <a href="/enter">
+                    <img id="home_img" src="{% static 'pictures/home.png' %}" alt="home">
+                </a>
+                <a id="logout" href="/logout">Log Out</a>
+                <a id="list" href="/choices">Choices</a>
+                <form id="search" action="/search" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="search"></label>
+                        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+        </div>    
+        <br>
+        <h1>Searches</h1>
+        <a href="/enter">Go Back</a>
+        <div class="row m-2">
+            
+            {% for movie in results.results %}
+            <a href="/details/{{movie.id}}">  
+                <div class="col img-body">  
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">{{movie.title}}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>  
 </body>
 </html>
