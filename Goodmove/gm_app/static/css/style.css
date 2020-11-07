@@ -56,6 +56,13 @@ h1{
 #search{
     width:300px;
     display: inline-block;
-    margin-left: 220px;
+    margin-left: 190px;
 
 } 
+
+#search2{
+    width: 300px;
+    display: inline-block;
+    margin-left: 260px;
+
+}
