@@ -3,11 +3,12 @@ from django.contrib import messages
 from .models import *
 import tmdbsimple as tmdb
 import requests
-from decouple import config
-api_key = config('api_key')
+import decouple
+# from decouple import config
+api_key = decouple.config('api_key')
 base_url = 'https://api.themoviedb.org/3/'
 
-# Create your views here.
+# Create your views here
 # movielist = ["movie1","movie2","movie3", "movie4", "movie5", "movie6", "movie7", "movie8", "movie9", "movie10"]
 
 def index(request):
