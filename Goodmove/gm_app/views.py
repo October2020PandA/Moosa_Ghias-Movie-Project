@@ -8,7 +8,7 @@ import decouple
 api_key = decouple.config('api_key')
 base_url = 'https://api.themoviedb.org/3/'
 
-# Create your views here
+# Create your views here.
 # movielist = ["movie1","movie2","movie3", "movie4", "movie5", "movie6", "movie7", "movie8", "movie9", "movie10"]
 
 def index(request):
