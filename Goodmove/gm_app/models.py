@@ -6,7 +6,7 @@ email_regex = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 
 # Create your models here.
-#class of usermanager
+
 class UserManager(models.Manager):
     def reg_validator(self, postData):
         errors = {}
