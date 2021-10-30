@@ -69,6 +69,7 @@ def details(request,movie_id):
     # response = requests.get(url)
     # movies = {'moviedetail':response.json()}
     # return render(request, 'movie_details.html', context=movies)
+    #api
     if 'user_id' not in request.session:
         return redirect('/')
     url = f'{base_url}movie/{movie_id}?api_key={api_key}&language=en-US'
