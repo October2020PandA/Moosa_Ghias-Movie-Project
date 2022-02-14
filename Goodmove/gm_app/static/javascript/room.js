@@ -7,7 +7,7 @@ $(function() {
     // When we're using HTTPS, use WSS too.
     var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
     var room_socket = new ReconnectingWebSocket(ws_scheme + '://' + window.location.host + "/movieroom" + window.location.pathname);
-    console.log('Cat');
+    console.log('run');
     room_socket.onmessage = function(message) {
         var data = JSON.parse(message.data);
         var chat = $("#chroomat")

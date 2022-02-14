@@ -6,7 +6,7 @@ import requests
 import decouple
 
 
-# from decouple import config
+# from decouple import config.
 api_key = decouple.config('api_key')
 base_url = 'https://api.themoviedb.org/3/'
 
